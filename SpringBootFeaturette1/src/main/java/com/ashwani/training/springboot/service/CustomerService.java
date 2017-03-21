@@ -1,5 +1,6 @@
 package com.ashwani.training.springboot.service;
 
-public class CustomerService {
+public interface CustomerService {
 
+	String processTime(String incomingArg);
 }
