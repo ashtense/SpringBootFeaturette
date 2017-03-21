@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.RestController;
 import com.ashwani.training.springboot.service.CustomerService;
 
 @RestController
+@RequestMapping(value="/users")
 public class CustomerController {
 
 	@Resource
