@@ -35,14 +35,35 @@
 				<span th:text="'Message: ' + ${message}"></span>
 			</h2>
 		</div>
-		
-		<form id="testForm" th:action="@{/spring/event/}" th:object="${eventContainer}" method="post">
-			<input id="event" type="text" th:field="*{customSpringEvent.message}" required="required"/><br/>
+
+		<form id="testForm" th:action="@{/spring/event/}"
+			th:object="${eventContainer}" method="post">
+			<input id="event" type="text" th:field="*{customSpringEvent.message}"
+				required="required" /><br />
 		</form>
 	</div>
 	<!-- /.container -->
 	<script type="text/javascript"
 		src="webjars/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script type="text/javascript">
+	var authorizationToken = 'Bearer eyJhbGciOiJIUzI1NiJ9.eyJpc3MiOiJnbG9iYWxfY2xvdWRfY29ubmVjdCIsImp0aSI6ImZjMGE2NzYwLWM2ODEtNDcwZS05ZWI4LWQ3YTI5MDYyZDFiYiIsInRva2VuX3R5cGUiOiJhY2Nlc3NfdG9rZW4iLCJhdWQiOiIvZ2NjIiwiaWF0IjoxNDk3MDE4MDkxLCJleHAiOjE0OTcwMjg4OTEsImluZm8iOnsiaWQiOiJlcmljX2RfYnJ5YW50IiwidXNlcl90eXBlIjoiQURQX1VTRVIiLCJvd25lcl9pZCI6ImFkcCIsImN1cnJlbnRfdGVuYW50X2NvbnRleHQiOnsidGVuYW50SWQiOiJNQVNURVIiLCJ0ZW5hbnROYW1lIjoibWFzdGVyIiwiY3VycmVudE93bmVySWQiOiJhZHAiLCJjdXJyZW50VXNlclR5cGUiOiJBRFBfVVNFUiJ9LCJ0ZW5hbnRpZF9jbGllbnRpZF9hcnJheSI6W119fQ.fOO6Og2wgpfoMpJUOsxhs8YBuknNZgkzPVaiPdSrVl0';
+	$.ajax({
+			type : "GET",
+			beforeSend : function(request) {
+				request.setRequestHeader("Authorization", authorizationToken);
+			},
+			url : "http://gcc-dit2.mnc.oneadp.com:8077/api/sor/",
+			processData : false,
+			success : function(msg) {
+				//$("#results").append("The result =" + StringifyPretty(msg));
+				console.log(msg);
+			}
+		});
+	</script>
+
+	<button type="submit" onclick="UserAction()">Search</button>
 
 </body>
 </html>
