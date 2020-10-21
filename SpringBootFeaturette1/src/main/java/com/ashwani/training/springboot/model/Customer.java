@@ -1,5 +1,5 @@
 package com.ashwani.training.springboot.model;
 
-public class User {
+public class Customer {
 
 }
